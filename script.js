@@ -9,8 +9,8 @@ document.getElementById('countrydrop').addEventListener('change', async function
         const responsevisaa = await fetch(`https://rough-sun-2523.fly.dev/country/${countryCode}`); //fetches visa free / visa on arrival countries.
         const data = await responsevisaa.json(); // awaits return of data from response visa
 
-        if (data.VR && data.VR.length > 0 ) { // getting visa free
-            data.VR.forEach(async (country) => { // for each country creating a flashcard.
+        if (data.VF && data.VF.length > 0 ) { // getting visa free
+            data.VF.forEach(async (country) => { // for each country creating a flashcard.
                 const card = document.createElement('div');
                 card.classList.add('flashcard', 'visa-required'); // self explan
                 const flagUrl = `https://flagcdn.com/w320/${country.code.toLowerCase()}.png`; //fetches flag by using Country code 
